@@ -1,0 +1,10 @@
+{
+  "name": "n8n-custom",
+  "version": "0.1.0",
+  "n8n": {
+    "nodes": [
+      "./custom/whatsapp-web-nodes"
+    ]
+  }
+}
+
