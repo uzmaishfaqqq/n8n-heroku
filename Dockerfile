@@ -9,12 +9,14 @@ RUN mkdir -p /home/node/.n8n/custom/
 # This assumes your custom_nodes_stg directory is at the root of your n8n-heroku repo
 COPY ./custom_nodes_stg/ /home/node/.n8n/custom/
 
-# Set ownership back to node user
+# Copy entrypoint.sh and make it executable while still as root
+COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+# Now switch to node user for subsequent operations and running the app
 USER node
 
 WORKDIR /home/node/packages/cli
 ENTRYPOINT []
 
-COPY ./entrypoint.sh /
-RUN chmod +x /entrypoint.sh
 CMD ["/entrypoint.sh"]
