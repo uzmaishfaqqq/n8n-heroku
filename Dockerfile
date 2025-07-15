@@ -1,4 +1,5 @@
-FROM n8nio/n8n:latest # Or a specific version if you prefer, like 1.48.0
+FROM n8nio/n8n:latest
+# Or a specific version if you prefer, like 1.48.0 <-- Move comment to its own line
 
 USER root
 
