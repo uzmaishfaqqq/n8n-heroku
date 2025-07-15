@@ -3,11 +3,10 @@ FROM n8nio/n8n:latest
 USER root
 
 # Create the custom nodes directory inside the n8n data folder
-RUN mkdir -p /home/node/.n8n/custom/
+RUN mkdir -p /home/node/.n8n/custom/  # <--- THIS STEP MUST BE PRESENT AND EXECUTE
 
 # Copy your compiled custom nodes into the custom directory
-# This assumes your custom_nodes_stg directory is at the root of your n8n-heroku repo
-COPY ./custom_nodes_stg/ /home/node/.n8n/custom/
+COPY ./custom_nodes_stg/ /home/node/.n8n/custom/ # <--- THIS STEP MUST BE PRESENT AND EXECUTE
 
 # Copy entrypoint.sh and make it executable while still as root
 COPY ./entrypoint.sh /
